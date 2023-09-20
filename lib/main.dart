@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:using_riverpod/src/my_web_page.dart';
+import 'package:using_riverpod/web_view_no_implementation.dart'
+    if (dart.library.html) 'package:using_riverpod/web_view_implementation.dart';
 
 void main() {
+  webViewImplementation();
   runApp(const MyApp());
 }
 
