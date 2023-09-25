@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:using_riverpod/src/my_web_page.dart';
+import 'package:using_riverpod/src/content/page_to_navigate.dart';
 import 'package:using_riverpod/web_view_no_implementation.dart'
     if (dart.library.html) 'package:using_riverpod/web_view_implementation.dart';
 
@@ -18,7 +18,7 @@ class MyApp extends StatelessWidget {
     return const ProviderScope(
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
-        home: MyWebPage(),
+        home: Quote(),
       ),
     );
   }

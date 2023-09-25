@@ -9,12 +9,17 @@ class NavbarButton extends HookConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    var textColor = useState<Color>(Colors.black);
+    var textColor = useState<Color>(Colors.white);
+    var isUnderLine = useState<bool>(false);
     return MouseRegion(
       onEnter: (event) {
-        textColor.value = Colors.blue;
+        textColor.value = const Color.fromRGBO(39, 207, 195, 1);
+        isUnderLine.value = true;
       },
-      onExit: (event) => textColor.value = Colors.black,
+      onExit: (event) {
+        textColor.value = Colors.white;
+        isUnderLine.value = false;
+      },
       child: Material(
         color: Colors.transparent,
         child: InkWell(
@@ -29,6 +34,9 @@ class NavbarButton extends HookConsumerWidget {
                 fontSize: 16,
                 fontWeight: FontWeight.w600,
                 color: textColor.value,
+                decoration: isUnderLine.value
+                    ? TextDecoration.underline
+                    : TextDecoration.none,
               ),
             ),
           ),

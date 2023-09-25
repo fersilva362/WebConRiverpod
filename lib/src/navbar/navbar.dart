@@ -4,7 +4,6 @@ import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:using_riverpod/src/Widget/responsive_widget.dart';
 import 'package:using_riverpod/src/my_web_page.dart';
 import 'package:using_riverpod/src/navbar/navbar_button.dart';
-import 'dart:developer' as devtools show log;
 
 class NavBar extends ResponsiveWidget {
   const NavBar({super.key});
@@ -25,86 +24,116 @@ class MobileNavBar extends HookConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final isScroll = ref.watch(scrollProvider.notifier).state;
-    final navbarColor = isScroll ? Colors.blue : Colors.white;
+    //final navbarColor = isScroll ? Colors.blue : Colors.white;
     final containerHeigth = useState<double>(0.0);
+    final isExpanded = useState<bool>(false);
     return Stack(
       children: [
         AnimatedContainer(
+          color: Colors.black,
           curve: Curves.ease,
-          margin: const EdgeInsets.only(top: 70, bottom: 0),
+          margin: const EdgeInsets.only(top: 80, bottom: 0),
           height: containerHeigth.value,
           duration: const Duration(
             milliseconds: 350,
           ),
-          child: SingleChildScrollView(
-            child: Column(
-              children: [
-                NavbarButton(
-                    onTap: () {
-                      ref.read(currentPageProvider.notifier).state = keyHome;
-                      containerHeigth.value = 0;
-                    },
-                    text: 'Home'),
-                NavbarButton(
-                    onTap: () {
-                      ref.read(currentPageProvider.notifier).state = keyFeature;
-                      containerHeigth.value = 0;
-                    },
-                    text: 'Feature'),
-                NavbarButton(
-                    onTap: () {
-                      ref.read(currentPageProvider.notifier).state =
-                          keyScreenShot;
-                      containerHeigth.value = 0;
-                    },
-                    text: 'Screenshot'),
-                NavbarButton(
-                    onTap: () {
-                      ref.read(currentPageProvider.notifier).state = keyContact;
-                      containerHeigth.value = 0;
-                    },
-                    text: 'Contact'),
-              ],
+          child: Column(children: [
+            Expanded(
+              child: SingleChildScrollView(
+                child: Column(
+                  children: [
+                    NavbarButton(
+                        onTap: () {
+                          ref.read(currentPageProvider.notifier).state =
+                              keyAboutUs;
+                          containerHeigth.value = 0;
+                          isExpanded.value = false;
+                        },
+                        text: 'About Us'),
+                    NavbarButton(
+                        onTap: () {
+                          ref.read(currentPageProvider.notifier).state =
+                              keyCoworkingKey;
+                          containerHeigth.value = 0;
+                          isExpanded.value = false;
+                        },
+                        text: 'Coworking Space'),
+                    NavbarButton(
+                        onTap: () {
+                          ref.read(currentPageProvider.notifier).state =
+                              keyOASIS;
+                          containerHeigth.value = 0;
+                          isExpanded.value = false;
+                        },
+                        text: 'OASIS'),
+                    NavbarButton(
+                        onTap: () {
+                          ref.read(currentPageProvider.notifier).state =
+                              keyMeeting;
+                          containerHeigth.value = 0;
+                          isExpanded.value = false;
+                        },
+                        text: 'Meeting Rooms'),
+                    NavbarButton(
+                        onTap: () {
+                          ref.read(currentPageProvider.notifier).state =
+                              keyMember;
+                          containerHeigth.value = 0;
+                          isExpanded.value = false;
+                        },
+                        text: 'Members'),
+                    NavbarButton(
+                        onTap: () {
+                          ref.read(currentPageProvider.notifier).state =
+                              keyContact;
+                          containerHeigth.value = 0;
+                          isExpanded.value = false;
+                        },
+                        text: 'Contact Us'),
+                  ],
+                ),
+              ),
             ),
-          ),
+          ]),
         ),
         Container(
-          color: navbarColor,
+          color: Colors.black,
           child: Padding(
             padding: const EdgeInsets.all(20.0),
             child: Row(
               children: [
                 Image.asset(
-                  'assets/mindfulness1.png',
-                  height: 40,
+                  'assets/Workville.png',
+                  height: 50,
+                  fit: BoxFit.contain,
                 ),
                 const SizedBox(
                   width: 10,
-                ),
-                const Text(
-                  'Company name',
-                  style: TextStyle(
-                    fontWeight: FontWeight.w700,
-                    color: Colors.black87,
-                    fontSize: 32,
-                  ),
                 ),
                 Expanded(
                   child: Container(),
                 ),
                 Material(
                   child: InkWell(
-                      onTap: () {
-                        final double height =
-                            containerHeigth.value > 0 ? 0.0 : 240;
-                        containerHeigth.value = height;
-                      },
-                      splashColor: Colors.white70,
-                      child: const Icon(
-                        Icons.menu,
-                        color: Colors.black54,
-                      )),
+                    onTap: () {
+                      final double height =
+                          containerHeigth.value > 0 ? 0.0 : 300;
+                      containerHeigth.value = height;
+
+                      isExpanded.value = !isExpanded.value;
+                    },
+                    child: Container(
+                      decoration: BoxDecoration(
+                        border: Border.all(width: 0),
+                        color: Colors.black,
+                      ),
+                      child: Icon(
+                        isExpanded.value ? Icons.close : Icons.menu,
+                        color: Colors.white,
+                        size: 30,
+                      ),
+                    ),
+                  ),
                 )
               ],
             ),
@@ -120,53 +149,63 @@ class DesktopNavBar extends HookConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final isScroll = ref.watch(scrollProvider.notifier).state;
-    final navbarColor = isScroll ? Colors.blueAccent : Colors.white;
+    //final navbarColor = isScroll ? Colors.blueAccent : Colors.white;
 
     return Container(
-      color: navbarColor,
+      color: Colors.black,
       child: Padding(
-        padding: const EdgeInsets.all(20.0),
+        padding: const EdgeInsets.all(10.0),
         child: Row(
           children: [
             Image.asset(
-              'assets/mindfulness1.png',
-              height: 40,
-            ),
-            const SizedBox(
-              width: 10,
-            ),
-            const Text(
-              'Company name',
-              style: TextStyle(
-                fontWeight: FontWeight.w700,
-                color: Colors.black87,
-                fontSize: 32,
-              ),
+              'assets/Workville.png',
+              height: 75,
             ),
             Expanded(
               child: Container(),
             ),
             NavbarButton(
                 onTap: () {
-                  ref.read(currentPageProvider.notifier).state = keyHome;
+                  ref.read(currentPageProvider.notifier).state = keyAboutUs;
                 },
-                text: 'Home'),
+                text: 'About Us'),
             NavbarButton(
                 onTap: () {
-                  ref.read(currentPageProvider.notifier).state = keyFeature;
+                  ref.read(currentPageProvider.notifier).state =
+                      keyCoworkingKey;
                 },
-                text: 'Feature'),
+                text: 'Coworking Space'),
             NavbarButton(
                 onTap: () {
-                  ref.read(currentPageProvider.notifier).state = keyScreenShot;
+                  ref.read(currentPageProvider.notifier).state = keyOASIS;
                 },
-                text: 'Screenshot'),
+                text: 'OASIS'),
             NavbarButton(
                 onTap: () {
-                  ref.read(currentPageProvider.notifier).state = keyContact;
+                  ref.read(currentPageProvider.notifier).state = keyMeeting;
                 },
-                text: 'Contact'),
+                text: 'Meeting Rooms'),
+            NavbarButton(
+                onTap: () {
+                  ref.read(currentPageProvider.notifier).state = keyMember;
+                },
+                text: 'Members'),
+            ElevatedButton(
+              style: ElevatedButton.styleFrom(
+                minimumSize: const Size(120, 45),
+                shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(20)),
+                backgroundColor: const Color.fromRGBO(39, 207, 195, 1),
+              ),
+              onPressed: () {
+                ref.read(currentPageProvider.notifier).state = keyContact;
+              },
+              child: const Text(
+                'Contact Us',
+                style: TextStyle(fontSize: 15, color: Colors.black),
+              ),
+            ),
+            const SizedBox(width: 40)
           ],
         ),
       ),
