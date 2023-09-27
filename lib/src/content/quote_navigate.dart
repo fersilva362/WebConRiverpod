@@ -1,6 +1,7 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
+import 'package:go_router/go_router.dart';
 import 'package:using_riverpod/src/Widget/checkbox.dart';
 import 'package:using_riverpod/src/Widget/responsive_widget.dart';
 import 'package:using_riverpod/src/Widget/text_field.dart';
@@ -10,35 +11,140 @@ class Quote extends ResponsiveWidget {
 
   @override
   Widget buildDesktop(BuildContext context) {
-    return const Scaffold(body: SizedBox(height: 2300, child: DeskQuote()));
+    return const Scaffold(body: SizedBox(child: DeskQuote()));
   }
 
   @override
   Widget buildMobile(BuildContext context) {
-    // TODO: implement buildMobile
-    return Container(width: 60, height: 60, color: Colors.amber);
+    final maXWidth = MediaQuery.of(context).size.width;
+    final height = MediaQuery.of(context).size.height;
+    return Scaffold(
+      body: Column(
+        children: [
+          InkWell(
+            onTap: () {
+              context.goNamed('home');
+            },
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Image.asset(
+                  'assets/logoBco.png',
+                  height: 75,
+                  fit: BoxFit.contain,
+                ),
+              ],
+            ),
+          ),
+          SizedBox(
+            height: 0.8 * height,
+            child: Stack(
+              children: [
+                Align(
+                  alignment: Alignment.center,
+                  child: Container(
+                    width: double.infinity,
+                    height: height,
+                    decoration: BoxDecoration(
+                      image: DecorationImage(
+                          image: const AssetImage(
+                            'assets/coworkBackgroundMember.png',
+                          ),
+                          fit: BoxFit.fitHeight,
+                          colorFilter: ColorFilter.mode(
+                              Colors.black.withOpacity(0.25),
+                              BlendMode.dstATop)),
+                    ),
+                  ),
+                ),
+                Align(
+                  alignment: Alignment.center,
+                  child: Container(
+                    margin: const EdgeInsets.symmetric(horizontal: 20),
+                    width: 1000,
+                    //height: 1700,
+                    decoration: BoxDecoration(
+                        color: Colors.transparent,
+                        borderRadius: BorderRadius.circular(10)),
+                    child: Column(
+                      children: [
+                        Container(
+                          width: maXWidth,
+                          height: 200,
+                          color: Colors.transparent,
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            crossAxisAlignment: (maXWidth > 1250)
+                                ? CrossAxisAlignment.start
+                                : CrossAxisAlignment.center,
+                            children: const [
+                              Text(
+                                'Get a Quote',
+                                style: TextStyle(
+                                    color: Colors.black,
+                                    fontSize: 46,
+                                    height: 1.18,
+                                    fontWeight: FontWeight.bold),
+                              ),
+                              SizedBox(
+                                height: 10,
+                              ),
+                              Text(
+                                'Fill out the form and a member of our team will be in touch.',
+                                style: TextStyle(
+                                    color: Colors.black,
+                                    fontSize: 22,
+                                    fontWeight: FontWeight.bold,
+                                    height: 1.3),
+                              )
+                            ],
+                          ),
+                        ),
+                        const Expanded(
+                          flex: 1,
+                          child: ColumnFormField(
+                            fillColor: Colors.white,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                )
+              ],
+            ),
+          ),
+        ],
+      ),
+    );
   }
 }
 
 class DeskQuote extends StatelessWidget {
-  const DeskQuote({super.key});
+  const DeskQuote({super.key, this.width});
+  final double? width;
 
   @override
   Widget build(BuildContext context) {
     final height = MediaQuery.of(context).size.height;
+
     return Column(
       children: [
         SizedBox(
           width: double.infinity,
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Image.asset(
-                'assets/loboBco.png',
-                height: 75,
-                fit: BoxFit.contain,
-              ),
-            ],
+          child: InkWell(
+            onTap: () {
+              context.goNamed('home');
+            },
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Image.asset(
+                  'assets/logoBco.png',
+                  height: 75,
+                  fit: BoxFit.contain,
+                ),
+              ],
+            ),
           ),
         ),
         SizedBox(
@@ -66,7 +172,7 @@ class DeskQuote extends StatelessWidget {
                 child: Container(
                   margin: const EdgeInsets.symmetric(horizontal: 200),
                   width: 1000,
-                  height: 1300,
+                  //height: 1700,
                   decoration: BoxDecoration(
                       color: Colors.transparent,
                       borderRadius: BorderRadius.circular(10)),
@@ -137,6 +243,11 @@ class ColumnFormField extends StatelessWidget {
 
     return Container(
       decoration: const BoxDecoration(color: Colors.black),
+      width: maxWidth < 500
+          ? maxWidth
+          : (maxWidth < 1250)
+              ? 500
+              : null,
       padding: const EdgeInsets.all(20),
       //height: 1300,
       child: SingleChildScrollView(

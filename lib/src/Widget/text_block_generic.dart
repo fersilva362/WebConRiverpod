@@ -64,11 +64,17 @@ class TextBlockGeneric extends StatelessWidget {
             const Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                ButtonGeneric(text: 'Get a quote'),
+                ButtonGeneric(
+                  text: 'Get a quote',
+                  nameRoute: 'quote',
+                ),
                 SizedBox(
                   width: 10,
                 ),
-                ButtonGeneric(text: 'Request info'),
+                ButtonGeneric(
+                  text: 'Request info',
+                  nameRoute: 'quote',
+                ),
               ],
             )
           ],

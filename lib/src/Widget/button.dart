@@ -1,14 +1,17 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 class ButtonGeneric extends StatelessWidget {
   final String text;
-
-  const ButtonGeneric({super.key, required this.text});
+  final String nameRoute;
+  const ButtonGeneric({super.key, required this.text, required this.nameRoute});
   @override
   Widget build(BuildContext context) {
     return Material(
       child: InkWell(
-        onTap: () {},
+        onTap: () {
+          context.goNamed(nameRoute);
+        },
         child: Container(
           alignment: Alignment.center,
           decoration: BoxDecoration(

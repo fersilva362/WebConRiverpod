@@ -7,7 +7,6 @@ import 'package:using_riverpod/src/content/coworking_space.dart';
 import 'package:using_riverpod/src/content/mamber.dart';
 import 'package:using_riverpod/src/content/meeting_room.dart';
 import 'package:using_riverpod/src/content/oasis.dart';
-import 'package:using_riverpod/src/content/page_to_navigate.dart';
 import 'package:using_riverpod/src/navbar/navbar.dart';
 
 final keyAboutUs = GlobalKey();
@@ -43,6 +42,7 @@ class MyWebPage extends HookConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     // ignore: no_leading_underscores_for_local_identifiers
+
     final _controller = useScrollController();
     useEffect(() {
       _controller.addListener(() {
@@ -68,14 +68,14 @@ class MyWebPage extends HookConsumerWidget {
                   controller: _controller,
                   child: Column(
                     children: [
-                      /* AboutUs(key: keyAboutUs),
+                      AboutUs(key: keyAboutUs),
                       CoworkingSpace(key: keyCoworkingKey),
                       Oasis(key: keyOASIS),
                       MeetingRoom(key: keyMeeting),
                       MemeberCoworker(key: keyMember),
                       ContactContent(
                         key: keyContact,
-                      ) */
+                      )
                     ],
                   ),
                 ),

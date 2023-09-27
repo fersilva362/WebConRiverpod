@@ -152,11 +152,23 @@ class TextBlock extends StatelessWidget {
             const Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Expanded(child: ButtonGeneric(text: 'Get a quote')),
+                Expanded(
+                    child: ButtonGeneric(
+                  text: 'Get a quote',
+                  nameRoute: 'quote',
+                )),
                 SizedBox(width: 10),
-                Expanded(child: ButtonGeneric(text: 'Request info')),
+                Expanded(
+                    child: ButtonGeneric(
+                  text: 'Request info',
+                  nameRoute: 'quote',
+                )),
                 SizedBox(width: 10),
-                Expanded(child: ButtonGeneric(text: 'Video Tour')),
+                Expanded(
+                    child: ButtonGeneric(
+                  text: 'Video Tour',
+                  nameRoute: 'videoScreen',
+                )),
                 SizedBox(width: 10),
               ],
             )
