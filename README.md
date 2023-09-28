@@ -10,5 +10,8 @@ This example is Web app  that on scrolling changes the nav item and strives to r
 - I added an embed video using the WebView package  that allows to display web content. 
 
 ![screenCoworking](https://github.com/fersilva362/WebConRiverpod/assets/78646102/359540ad-d13d-489f-b4c3-4a86c23b7484)
+<p align="center">
+  <img width="460" height="300" src="https://github.com/fersilva362/WebConRiverpod/assets/78646102/25dd7ab5-158b-49be-a310-8d1b79c4de86">
+</p>
 ![screenSmall](https://github.com/fersilva362/WebConRiverpod/assets/78646102/25dd7ab5-158b-49be-a310-8d1b79c4de86)
 
