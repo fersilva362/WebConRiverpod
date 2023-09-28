@@ -10,7 +10,7 @@ class MemeberCoworker extends StatelessWidget {
     final height = MediaQuery.of(context).size.height;
     return Container(
       height: 0.8 * height,
-      margin: EdgeInsets.only(top: 50),
+      margin: const EdgeInsets.only(top: 50),
       child: Stack(
         children: [
           Align(

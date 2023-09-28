@@ -11,7 +11,6 @@ class VideoScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final maxWidth = MediaQuery.of(context).size.width;
-    final maxHeight = MediaQuery.of(context).size.height;
     return Scaffold(
       body: Column(
         children: [

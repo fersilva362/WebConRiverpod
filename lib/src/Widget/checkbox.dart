@@ -18,7 +18,7 @@ class CheckBoxGeneric extends StatelessWidget {
             return null;
           }),
           side: MaterialStateBorderSide.resolveWith(
-            (states) => BorderSide(width: 1.0, color: Colors.white),
+            (states) => const BorderSide(width: 1.0, color: Colors.white),
           ),
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(5),

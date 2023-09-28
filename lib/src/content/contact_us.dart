@@ -109,7 +109,7 @@ class ColumnFormField extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return SizedBox(
       width: 500,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -166,10 +166,12 @@ class ColumnFormField extends StatelessWidget {
           const TextFieldGeneric(
             title: 'First name',
             fillColor: Color.fromRGBO(245, 248, 250, 0.6),
+            textColor: Colors.black,
           ),
           const TextFieldGeneric(
             title: 'Last name',
             fillColor: Color.fromRGBO(245, 248, 250, 0.6),
+            textColor: Colors.black,
           ),
           const SizedBox(
             height: 20,

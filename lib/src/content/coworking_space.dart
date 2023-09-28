@@ -50,7 +50,7 @@ class TextBlock extends StatelessWidget {
               height: 30,
             ),
             Text(
-              'Workville is NYC’s best boutique coworking space and daily meeting room provider. If your team is in need of a short or long-term collaborative office or conference room, or just wants to host an occasional off-site, we have just what you need. Our inspiring environment creates a friendly and productive space. In addition to move-in-ready offices, meeting rooms, and individual workspaces with flexible terms, members can spread out to work from the cafes, lounges, and three outdoor terraces.',
+              "Workville is NYC's best boutique coworking space and daily meeting room provider. If your team is in need of a short or long-term collaborative office or conference room, or just wants to host an occasional off-site, we have just what you need. Our inspiring environment creates a friendly and productive space. In addition to move-in-ready offices, meeting rooms, and individual workspaces with flexible terms, members can spread out to work from the cafes, lounges, and three outdoor terraces.",
               maxLines: null,
               style:
                   TextStyle(fontSize: 15, color: Color.fromRGBO(68, 68, 68, 1)),

@@ -32,12 +32,13 @@ class ResponsiveAboutUs extends StatelessWidget {
           height: isSmall ? 0.5 * height : 250,
           width: width,
           decoration: BoxDecoration(
-              image: DecorationImage(
-            image: isSmall
-                ? const AssetImage('assets/bannerAboutusSmall.png')
-                : const AssetImage('assets/bannerAboutus.png'),
-            fit: BoxFit.cover,
-          )),
+            image: DecorationImage(
+              image: isSmall
+                  ? const AssetImage('assets/bannerAboutusSmall.png')
+                  : const AssetImage('assets/bannerAboutus.png'),
+              fit: BoxFit.cover,
+            ),
+          ),
         ),
         Center(
             child: Padding(
@@ -71,7 +72,7 @@ class ResponsiveAboutUs extends StatelessWidget {
               ),
               Text(
                 maxLines: 4,
-                'We’re known as NYC’s best boutique coworking space and daily meeting rooms and event  space provider because of our flexible, proactive management style, professional and friendly environment, and the top talent we attract. Here’s a look at what’s happening at Workville:',
+                "We're known as NYC's best boutique coworking space and daily meeting rooms and event  space provider because of our flexible, proactive management style, professional and friendly environment, and the top talent we attract. Here’s a look at what’s happening at Workville:",
                 style: TextStyle(
                     fontSize: 18, color: Color.fromRGBO(60, 60, 60, 1)),
               ),

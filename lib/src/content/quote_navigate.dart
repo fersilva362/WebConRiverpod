@@ -1,6 +1,4 @@
-import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/framework.dart';
 import 'package:go_router/go_router.dart';
 import 'package:using_riverpod/src/Widget/checkbox.dart';
 import 'package:using_riverpod/src/Widget/responsive_widget.dart';
@@ -310,14 +308,17 @@ class ColumnFormField extends StatelessWidget {
             const TextFieldGeneric(
               title: 'First name',
               fillColor: Colors.white,
+              textColor: Colors.white,
             ),
             const TextFieldGeneric(
               title: 'Last name',
               fillColor: Colors.white,
+              textColor: Colors.white,
             ),
             const TextFieldGeneric(
               title: 'Company name',
               fillColor: Colors.white,
+              textColor: Colors.white,
             ),
             const SizedBox(
               height: 20,
@@ -356,7 +357,10 @@ class ColumnFormField extends StatelessWidget {
             const SizedBox(
               height: 10,
             ),
-            const CheckBoxGeneric(title: 'Co-Working', isChecked: false),
+            const CheckBoxGeneric(
+              title: 'Co-Working',
+              isChecked: false,
+            ),
             const CheckBoxGeneric(title: 'Private Office', isChecked: false),
             const CheckBoxGeneric(title: 'Meeting Room', isChecked: false),
             const CheckBoxGeneric(title: 'OASIS', isChecked: false),

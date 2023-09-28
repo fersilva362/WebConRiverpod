@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:using_riverpod/src/content/about_us.dart';
 import 'package:using_riverpod/src/content/contact_us.dart';
@@ -41,16 +40,6 @@ class MyWebPage extends HookConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    // ignore: no_leading_underscores_for_local_identifiers
-
-    final _controller = useScrollController();
-    useEffect(() {
-      _controller.addListener(() {
-        onScroll(_controller, ref);
-      });
-      return _controller.dispose;
-    }, [_controller]);
-
     ref
         .watch(currentPageProvider.notifier)
         .addListener(scrollTo, fireImmediately: false);
@@ -65,7 +54,6 @@ class MyWebPage extends HookConsumerWidget {
               const NavBar(),
               Expanded(
                 child: SingleChildScrollView(
-                  controller: _controller,
                   child: Column(
                     children: [
                       AboutUs(key: keyAboutUs),
