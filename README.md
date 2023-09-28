@@ -13,5 +13,5 @@ This example is Web app  that on scrolling changes the nav item and strives to r
 <p align="center">
   <img width="500" height="800" src="https://github.com/fersilva362/WebConRiverpod/assets/78646102/25dd7ab5-158b-49be-a310-8d1b79c4de86">
 </p>
-![screenSmall](https://github.com/fersilva362/WebConRiverpod/assets/78646102/25dd7ab5-158b-49be-a310-8d1b79c4de86)
+
 
