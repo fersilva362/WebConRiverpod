@@ -9,10 +9,9 @@ This example is Web app  that on scrolling changes the nav item and strives to r
 - to preserve a piece of state (scroll position) and allows listening to that state I used Riverpod.
 - I added an embed video using the WebView package  that allows to display web content. 
 
-![screenCoworking](https://github.com/fersilva362/WebConRiverpod/assets/78646102/359540ad-d13d-489f-b4c3-4a86c23b7484)
+
+![screenCoworking](https://github.com/fersilva362/WebConRiverpod/assets/78646102/
 <p align="center">
-  <img width="500" height="800" src="https://github.com/fersilva362/WebConRiverpod/assets/78646102/25dd7ab5-158b-49be-a310-8d1b79c4de86">
+  <img width="500" height="800" src="https://github.com/fersilva362/WebConRiverpod/assets/78646102/4b9c46d1-3b70-43cb-89cd-ab2b07de0a10">
 </p>
-
-
-![screenCoworking](https://github.com/fersilva362/WebConRiverpod/assets/78646102/74b3abaf-bc5c-40e0-83e6-52d9c8828941)
+74b3abaf-bc5c-40e0-83e6-52d9c8828941)
