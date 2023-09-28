@@ -1,18 +1,14 @@
 import 'package:flutter/material.dart';
 
-class CheckBoxGeneric extends StatefulWidget {
+class NewCheckBox extends StatefulWidget {
+  const NewCheckBox({super.key, required this.title});
   final String title;
 
-  const CheckBoxGeneric({
-    super.key,
-    required this.title,
-  });
-
   @override
-  State<CheckBoxGeneric> createState() => _CheckBoxGenericState();
+  State<NewCheckBox> createState() => _NewCheckBoxState();
 }
 
-class _CheckBoxGenericState extends State<CheckBoxGeneric> {
+class _NewCheckBoxState extends State<NewCheckBox> {
   bool isChecked = false;
   @override
   Widget build(BuildContext context) {
@@ -33,9 +29,9 @@ class _CheckBoxGenericState extends State<CheckBoxGeneric> {
           ),
           value: isChecked,
           onChanged: (value) {
-            setState(() {
-              isChecked = value!;
-            });
+            if (value != null) {
+              isChecked = !value;
+            }
           },
         ),
         Expanded(

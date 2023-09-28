@@ -1,5 +1,8 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
+import 'package:using_riverpod/src/Widget/checkbox.dart';
+import 'package:using_riverpod/src/Widget/text_field.dart';
 
 class MemeberCoworker extends StatelessWidget {
   const MemeberCoworker({super.key});
@@ -45,14 +48,19 @@ class MemeberCoworker extends StatelessWidget {
   }
 }
 
-class ColumnForm extends StatelessWidget {
+class ColumnForm extends StatefulWidget {
   const ColumnForm({
     super.key,
   });
 
   @override
+  State<ColumnForm> createState() => _ColumnFormState();
+}
+
+class _ColumnFormState extends State<ColumnForm> {
+  bool isChecked = false;
+  @override
   Widget build(BuildContext context) {
-    bool isChecked = false;
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 50),
       child: Column(
@@ -178,7 +186,11 @@ class ColumnForm extends StatelessWidget {
                   borderRadius: BorderRadius.circular(5),
                 ),
                 value: isChecked,
-                onChanged: (value) {},
+                onChanged: (value) {
+                  setState(() {
+                    isChecked = value!;
+                  });
+                },
               ),
               const Text(
                 ' Keep me logged in',
@@ -202,7 +214,9 @@ class ColumnForm extends StatelessWidget {
                         borderRadius: BorderRadius.circular(7)),
                     backgroundColor: const Color.fromRGBO(228, 228, 236, 1),
                   ),
-                  onPressed: () {},
+                  onPressed: () {
+                    context.goNamed('submitscreen');
+                  },
                   child: const Text(
                     'Sign in',
                     style: TextStyle(

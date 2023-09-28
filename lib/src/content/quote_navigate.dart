@@ -205,7 +205,7 @@ class DeskQuote extends StatelessWidget {
                                     fontSize: 22,
                                     fontWeight: FontWeight.bold,
                                     height: 1.3),
-                              )
+                              ),
                             ],
                           ),
                         ),
@@ -359,11 +359,16 @@ class ColumnFormField extends StatelessWidget {
             ),
             const CheckBoxGeneric(
               title: 'Co-Working',
-              isChecked: false,
             ),
-            const CheckBoxGeneric(title: 'Private Office', isChecked: false),
-            const CheckBoxGeneric(title: 'Meeting Room', isChecked: false),
-            const CheckBoxGeneric(title: 'OASIS', isChecked: false),
+            const CheckBoxGeneric(
+              title: 'Private Office',
+            ),
+            const CheckBoxGeneric(
+              title: 'Meeting Room',
+            ),
+            const CheckBoxGeneric(
+              title: 'OASIS',
+            ),
             const SizedBox(
               height: 35,
             ),
@@ -375,7 +380,9 @@ class ColumnFormField extends StatelessWidget {
                     style: ElevatedButton.styleFrom(
                       backgroundColor: const Color.fromRGBO(40, 207, 194, 1),
                     ),
-                    onPressed: () {},
+                    onPressed: () {
+                      context.goNamed('submitscreen');
+                    },
                     child: const Text(
                       'Submit',
                       style: TextStyle(

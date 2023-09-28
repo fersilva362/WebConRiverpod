@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:using_riverpod/src/Widget/responsive_widget.dart';
 import 'package:using_riverpod/src/Widget/text_field.dart';
 
@@ -250,7 +251,9 @@ class ColumnFormField extends StatelessWidget {
                 style: ElevatedButton.styleFrom(
                   backgroundColor: const Color.fromRGBO(255, 122, 89, 1),
                 ),
-                onPressed: () {},
+                onPressed: () {
+                  context.goNamed('submitscreen');
+                },
                 child: const Text(
                   'Submit',
                   style: TextStyle(fontSize: 12),
